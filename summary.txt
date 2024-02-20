@@ -1,0 +1,49 @@
+=-=-=-=-=-= | Project OnlyArts | =-=-=-=-=-=
+Groupe : © Amin, Diego, Louis
+
+=-=-=-=-=-= API =-=-=-=-=-=
+- Art Institue of Chicago
+- Swipper
+- (spotify background sound)
+- 
+
+=-=-=-=-=-= Style =-=-=-=-=-=
+- Resaux sociaux moderne (aroundi sur imagen/boutons, interface simple, )
+- 
+
+=-=-=-=-=-= Fonctionalités =-=-=-=-=-=
+- Art swiper (vertical ou horizontal ??) à la tiktok/short etc.
+- Pop-up on click sur le swipper avec info artiste, art, etc.
+- Info dans pop-up#1 :
+	- Image qui prend 40% de laa pop-up
+	- Titre de l'Artise (nom + titre)
+ 	- Titre de l'Oeuvre
+	- Pays d'origine + date (start - end)
+	- artwork_type_title 
+	- Catégorie (category_titles)
+	- petite case de la couleur principale (data[i].color)
+	- If public_domain = true --> domaine publique
+	- © - copyright_notice
+	- closing bouton (X)
+	- Un hover sur l'image dans pop-up#1 qui asoumbris l'image et indice qu'on peut zoomer/clicker dessus
+
+- pop-up#2 quand click sur l'image qui est sur la pop-up#1 et afficher completement l'image 
+- Classement par pays, date, catégorie (data[i].category_titles), (artiste)
+- Boutton jour/nuit
+- 
+
+=-=-=-=-=-= Répartition =-=-=-=-=-=
+- ?
+- ?
+- ?
+- 
+
+=-=-=-=-=-= New (à tester) =-=-=-=-=-=
+- Paralax sur image dans swipper
+- Music de fond (classic)
+- Classemment pas couleur (color picker et data[i].color, aroundir a un chiffre rond etc.)
+
+
+
+
+
