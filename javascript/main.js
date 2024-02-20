@@ -1,3 +1,10 @@
+let swiper = new Swiper(".mySwiper", {
+  direction: "vertical",
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
 // key = tiondernse
 
 // processEuropeanaSearch({
@@ -10,30 +17,10 @@
 
 // image --> https://www.artic.edu/iiif/2 + image_id + /full/843,/0/default.jpg
 
-fetch(`https://api.artic.edu/api/v1/artworks?page=1&limit=100`)
+/*fetch(`https://api.artic.edu/api/v1/artworks?page=1&limit=100`)
   .then(response => response.json())
   .then(data => {
     console.log(data);
   })
   .catch(error => {console.log("Erreur lors de la récup des données :", error);
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}*/
