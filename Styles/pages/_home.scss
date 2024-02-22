@@ -29,71 +29,88 @@ body{
       align-items: center;
       .louis-swipper{
         background-color: lightslategray;
-        width: 400px;
-
-        // img{
-        //   border-radius: 20px;
-        //   object-fit: cover;
-        //   display: block;
-        //   padding: 3px;
-        // }
-
-        .imgDesc{
-          position: relative;
-          border-radius: 10px;
+        width: 75%;
+        height: 80vh;
+        .swiper {
           width: 100%;
-          overflow: hidden;
-          img{
-            height: 100%;
-            width: 100%;
-            display: block;
-            margin-bottom: 0;
-            border-radius: 20px;
-            transition: all .4s ease-in-out;
-          }
-          &:hover{
-            transition: all .3s ease-in-out;
-            .desc{
-              transform: translateY(0%);
-              transition: all .3s ease-in-out;
-            }
-            img{
-              scale: 1.1;
-              transition: all .3s ease-in-out;
-            }
-          }
-          .desc{
-            position: absolute;
-            bottom: 0;
-            // margin: 0 auto;
-            border-radius: 10px;
-            @media screen and (min-width:880px) {
-              transform: translateY(100%);
-            }
-            transition: all .3s ease-in-out;
-            height: 40%;
-            width: 400px;
-            background: linear-gradient(170deg, rgba(0,0,0,0) 31%, rgba(0,0,0,0.15217962184873945) 42%, rgba(0,0,0,0.5443364845938375) 54%, rgba(0,0,0,0.765625) 61%, rgba(0,0,0,0.9701067927170869) 75%);
-
-
-            display: flex;
-            flex-direction: column;
-            justify-content: end;
-            align-items: end;
-            p{
-              text-align: right;
-              // position: absolute;
-              // bottom: 0;
-              height: fit-content;
-              padding: 0 5px 10px;
-              color: #fff;
-              font-size: 34px;
-              width: 340px;
-              margin: 0 auto;
-              
-            }
-          }
+          height: 100%;
         }
+        .mySwiper{
+          position: relative;
+          .swiper-pagination{
+            position: absolute;
+            left: 10px;
+          }
+
+          .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin: 0 auto;
+  
+            position: relative;
+            border-radius: 20px;
+            width: 400px;
+            overflow: hidden;
+            img{
+              height: 100%;
+              width: 100%;
+              display: block;
+              margin-bottom: 0;
+              border-radius: 20px;
+              object-fit: cover;
+              transition: all .4s ease-in-out;
+            }
+            &:hover{
+              transition: all .3s ease-in-out;
+              .desc{
+                transform: translateY(0%);
+                transition: all .3s ease-in-out;
+              }
+              img{
+                scale: 1.1;
+                transition: all .3s ease-in-out;
+              }
+            }
+            .desc{
+              position: absolute;
+              bottom: 0;
+              // margin: 0 auto;
+              border-radius: 10px;
+              @media screen and (min-width:880px) {
+                transform: translateY(100%);
+              }
+              transition: all .3s ease-in-out;
+              height: 40%;
+              width: 400px;
+              background: linear-gradient(170deg, rgba(0,0,0,0) 31%, rgba(0,0,0,0.15217962184873945) 42%, rgba(0,0,0,0.5443364845938375) 54%, rgba(0,0,0,0.765625) 61%, rgba(0,0,0,0.9701067927170869) 75%);
+  
+  
+              display: flex;
+              flex-direction: column;
+              justify-content: end;
+              align-items: end;
+              p{
+                text-align: right;
+                // position: absolute;
+                // bottom: 0;
+                height: fit-content;
+                padding: 0 5px 10px;
+                color: #fff;
+                font-size: 34px;
+                width: 340px;
+                margin: 0 auto;
+                
+              }
+            }
+          }
+
+        }
+
       }
     }
 
@@ -105,6 +122,7 @@ body{
 
       position: absolute;
       right: 20px;
+      top: 20px;
 
       width: 200px;
       background-color: rgb(75, 75, 75);
