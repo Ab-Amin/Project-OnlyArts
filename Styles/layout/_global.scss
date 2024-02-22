@@ -1,31 +1,35 @@
-//• & = prent le meme 'nom' que le parent. ici & = a
-
-// a{
-//   &:hover{    
-//   }
+// html,
+// body {
+//   position: relative;
+//   height: 100%;
 // }
 
-//• lighten et darken + amount of it to change
-
-// body{
-//   background: lighten($color: $main-color, $amount: 10%);
-//   background: lighten($main-color, 10%);
-// }
+.full-border{
+  border-radius: 20px;
+}
 
 
+// POP UP 1
 
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+.pop-up{
+  position: absolute;
+  z-index: 3;
+  background-color: rgb(147, 167, 113);
+  padding: 30px;
+  border-radius: 20px;
+  margin: 20px;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+  .img-up{
+    img {
+      width: 100%;
+    }
+  }
+}
 

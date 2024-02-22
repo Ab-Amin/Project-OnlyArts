@@ -1,3 +1,12 @@
+let swiper = new Swiper(".mySwiper", {
+  direction: "vertical",
+  slidesPerView: 1,
+  mousewheel: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
 // key = tiondernse
 
 // processEuropeanaSearch({
@@ -17,23 +26,3 @@ fetch(`https://api.artic.edu/api/v1/artworks?page=1&limit=100`)
   })
   .catch(error => {console.log("Erreur lors de la récup des données :", error);
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
