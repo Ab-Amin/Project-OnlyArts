@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- links -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="Styles/style.min.css">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
@@ -22,14 +24,23 @@
   <main>
 
     <section class="main--main">
+
       
       <div class="louis-swipper full-border">
-        <div class="imgDesc">
-          <img src="img/test.jpg" alt="">
-          <div class="desc">
-            <p><small style="font-size:20px;"> mini info</p>
+        
+        <div class="swiper mySwiper">
+          
+          <div class="swiper-wrapper">
+            <!-- <div class="swiper-slide">
+              <img src="img/test.jpg" alt="">
+                <div class="desc">
+                  <p><small style="font-size:20px;"> mini info</small></p>
+                </div>
+            </div> -->
           </div>
+          <div class="swiper-pagination"></div>
         </div>
+
       </div>
 
       <!-- PopUp window #1-->
@@ -56,26 +67,40 @@
       <nav>
         <p>Sort by :</p>
         <div class="selections">
-          <select name="categories" id="">
+          <select name="category" id="select-category">
             <option value="categories">Categories</option>
-            <option value="">test1</option>
-            <option value="">test2</option>
-            <option value="">test3</option>
+            <option value="1">test1</option>
+            <option value="2">test2</option>
+            <option value="3">test3</option>
           </select>
-          <select name="countries" id="">
-            <option value="countries">Country of origin</option>
-            <option value="">test1</option>
-            <option value="">test2</option>
-            <option value="">test3</option>
+          <select name="country" id="select-country">
+            <option value="country">Country of origin</option>
+            <option value="1">test1</option>
+            <option value="2">test2</option>
+            <option value="3">test3</option>
           </select>
-          <select name="dates" id="">
+          <select name="dates" id="select-dates">
             <option value="dates">Dates</option>
-            <option value="">test1</option>
-            <option value="">test2</option>
-            <option value="">test3</option>
+            <option value="1">test1</option>
+            <option value="2">test2</option>
+            <option value="3">test3</option>
           </select>
         </div>
       </nav>
+      <div class="list">
+        <p>Favorite List :</p>
+        <div class="favorite-lists">
+          <div class="fav-list">
+            <div class="button">X</div>
+            <div>example name art title</div>
+          </div>
+          <div class="fav-list">
+            <div class="button">X</div>
+            <div>example name art title</div>
+          </div>
+
+        </div>
+      </div>
     </aside>
 
 
@@ -85,6 +110,8 @@
     FOOTER
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/99fa1db12f.js" crossorigin="anonymous"></script>
   <script src="javascript/main.js"></script>
 </body>
 </html>
