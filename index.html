@@ -66,10 +66,21 @@
           <i class="fa-solid fa-arrow-up"></i>
         </button>
       </div>
-      
+
+      <div class="nav-buttons">
+        <button class="previous--page hidden" type="button">&lt; Previous page</button>
+        <div class="pagesInfo hidden">
+          <a href="#">1</a>,
+          <span class="currentPage">(1)</span>,
+          <input type="text" class="pageSelect" placeholder="..."><span>,</span>
+          <a href="#" class="nextPageSelect">2</a>
+        </div>
+        <button class="next--page" type="button">Next page &gt;</button>
+      </div>
+
     </section>
 
-    <aside class="full-border">
+    <aside class="full-border" id="aside">
       <nav>
         <p>Sort by :</p>
 
@@ -81,26 +92,22 @@
           <select name="country" class="select select-country" data-select="select-country">
             <option value="country">Country of origin</option>
           </select>
+          <select name="artist" class="select select-artist" data-select="select-artist">
+            <option value="artist">Artist's name</option>
+          </select>
           <!-- <select name="dates" class="select select-dates" >
             <option value="dates">Dates</option>
           </select> -->
         </div>
 
       </nav>
-      <div class="list">
-        <p>Favorite List :</p>
-        <div class="favorite-lists">
-          <div class="fav-list">
-            <div class="button">X</div>
-            <div>example name art title</div>
-          </div>
-          <div class="fav-list">
-            <div class="button">X</div>
-            <div>example name art title</div>
-          </div>
 
+      <div class="list" >
+        <p>Favorite List :</p>
+        <div class="favorite-lists" id="list">
         </div>
       </div>
+
     </aside>
 
 
