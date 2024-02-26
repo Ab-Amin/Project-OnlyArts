@@ -1,35 +1,25 @@
 body{
-  font-family: "DM Sans", sans-serif;
+  font-family: "Fredoka", sans-serif;
   font-optical-sizing: auto;
   // font-weight: 100;
   font-style: normal;
   font-variation-settings: "wdth" 100;
 
-  header{
-    background-color: lightblue;
-    height: 100px;
-  }
-
   main{
     position: relative;
-    background-color: lightcoral;
     height: 100%;
-    margin: 20px 0;
-
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     .main--main{
-      background-color: antiquewhite;
       width: 100%;
-      padding: 20px;
-      
+      padding: 10px 20px 50px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       .louis-swipper{
-        background-color: lightslategray;
-        width: 75%;
+        width: 100%;
         height: 80vh;
         .swiper {
           width: 100%;
@@ -37,9 +27,13 @@ body{
         }
         .mySwiper{
           position: relative;
+
           .swiper-pagination{
             position: absolute;
             left: 10px;
+            width: 20px;
+            z-index: 10;
+            // display: none;
           }
 
           .swiper-slide {
@@ -49,13 +43,45 @@ body{
             display: flex;
             justify-content: center;
             align-items: center;
-
             margin: 0 auto;
-  
             position: relative;
             border-radius: 20px;
-            width: 400px;
+            width: 100%;
             overflow: hidden;
+            .buttons{
+              position: absolute;
+              width: 35px;
+              height: 85px;
+              z-index: 5;
+              right: 15px;
+              bottom: 12%;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 10px;
+
+              .add-to-fav, .read-more{
+                font-size: 20px;
+                color: white;
+                border: 2px solid white;
+                border-radius: 50%;
+                background-color: transparent;
+                height: 35px;
+                aspect-ratio: 1/1;
+
+                // margin-bottom: 10px;
+  
+                &:hover{
+                  background-color: rgba(255, 255, 255, 0.418);
+                }
+                &:active{
+                  scale: 0.95;
+                  background-color: transparent;
+                }
+  
+              }
+            }
             img{
               height: 100%;
               width: 100%;
@@ -67,10 +93,10 @@ body{
             }
             &:hover{
               transition: all .3s ease-in-out;
-              .desc{
-                transform: translateY(0%);
-                transition: all .3s ease-in-out;
-              }
+              // .desc{
+              //   transform: translateY(0%);
+              //   transition: all .3s ease-in-out;
+              // }
               img{
                 scale: 1.1;
                 transition: all .3s ease-in-out;
@@ -78,16 +104,17 @@ body{
             }
             .desc{
               position: absolute;
+              z-index: 3;
               bottom: 0;
               // margin: 0 auto;
               border-radius: 10px;
               @media screen and (min-width:880px) {
-                transform: translateY(100%);
+                // transform: translateY(100%);
               }
               transition: all .3s ease-in-out;
               height: 40%;
-              width: 400px;
-              background: linear-gradient(170deg, rgba(0,0,0,0) 31%, rgba(0,0,0,0.15217962184873945) 42%, rgba(0,0,0,0.5443364845938375) 54%, rgba(0,0,0,0.765625) 61%, rgba(0,0,0,0.9701067927170869) 75%);
+              width: 100%;
+              background: linear-gradient(170deg, rgba(0,0,0,0) 31%, rgba(0,0,0,0.13466334164588534) 39%, rgba(0,0,0,0.2219451371571073) 42%, rgba(0,0,0,0.6309226932668329) 54%, rgba(0,0,0,0.8179551122194514) 61%, rgba(0,0,0,0.9201995012468828) 75%);
   
   
               display: flex;
@@ -99,12 +126,21 @@ body{
                 // position: absolute;
                 // bottom: 0;
                 height: fit-content;
-                padding: 0 5px 10px;
                 color: #fff;
-                font-size: 34px;
-                width: 340px;
+                width: 90%;
                 margin: 0 auto;
-                
+              }
+              p:first-child{
+                font-size: 20px;
+                font-weight: 500;
+                margin-bottom: 3px;
+              }
+              p:nth-child(2){
+                font-size: 16px;
+                font-weight: normal;
+              }
+              p:last-child{
+                margin-bottom: 10px;
               }
             }
           }
@@ -119,11 +155,11 @@ body{
       @media screen and (min-width:880px) {
         display: block;
       }
-
       position: absolute;
       right: 20px;
       top: 20px;
-
+      z-index: 3;
+      
       width: 200px;
       background-color: rgb(75, 75, 75);
       height: 80%;
@@ -133,23 +169,56 @@ body{
         text-align: center;
         font-weight: 500;
       }
-      .selections{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        select{
-          text-align: center;
-          width: 80%;
-          margin: 6px 0;
-          padding: 4px 10px;
-          border-radius: 20px;
-          border: 2px solid rgb(104, 6, 196);
-          background-color: transparent;
-          font-weight: bold;
-          color: white;
+
+      nav{
+  
+        .selections{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          
+          select{
+            text-align: center;
+            width: 80%;
+            margin: 6px 0;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 2px solid rgb(104, 6, 196);
+            background-color: rgb(75, 75, 75);
+            font-weight: bold;
+            color: white;
+            option{
+              border-radius: 20px;
+              white-space: wrap;
+            }
+          }
+        }
+        
+      }
+      
+      .list{
+        .favorite-lists{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          .fav-list{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+            .button{
+              background-color: transparent;
+              border: none;
+              margin: 0 10px 0;
+              cursor: pointer;
+            }
+          }
         }
       }
+
     }
   }
 }

@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="Styles/style.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 
@@ -81,34 +83,18 @@
       <div class="louis-swipper full-border">
         
         <div class="swiper mySwiper">
-          <div class="swiper-pagination"></div>
           
           <div class="swiper-wrapper">
-            
-            <div class="swiper-slide">
-                <img src="img/test.jpg" alt="">
+            <!-- <div class="swiper-slide">
+              <img src="img/test.jpg" alt="">
                 <div class="desc">
                   <p><small style="font-size:20px;"> mini info</small></p>
                 </div>
-            </div>
-
-            <div class="swiper-slide">
-              Slide 2
-            </div>
-            
-            <div class="swiper-slide">
-              Slide 3
-            </div>
+            </div> -->
           </div>
-
+          <div class="swiper-pagination"></div>
         </div>
 
-        <!-- <div class="imgDesc">
-          <img src="img/test.jpg" alt="">
-          <div class="desc">
-            <p><small style="font-size:20px;"> mini info</p>
-          </div>
-        </div> -->
       </div>
 
       <!-- PopUp window #1-->
@@ -135,64 +121,77 @@
       <nav>
         <p>Sort by :</p>
         <div class="selections">
-          <select name="categories" id="">
+          <select name="category" class="select-category">
             <option value="categories">Categories</option>
-            <option value="">test1</option>
-            <option value="">test2</option>
-            <option value="">test3</option>
           </select>
-          <select name="countries" id="">
-            <option value="countries">Country of origin</option>
-            <option value="">test1</option>
-            <option value="">test2</option>
-            <option value="">test3</option>
+          <select name="country" class="select-country">
+            <option value="country">Country of origin</option>
           </select>
-          <select name="dates" id="">
+          <select name="dates" class="select-dates">
             <option value="dates">Dates</option>
-            <option value="">test1</option>
-            <option value="">test2</option>
-            <option value="">test3</option>
           </select>
         </div>
       </nav>
+      <div class="list">
+        <p>Favorite List :</p>
+        <div class="favorite-lists">
+          <div class="fav-list">
+            <div class="button">X</div>
+            <div>example name art title</div>
+          </div>
+          <div class="fav-list">
+            <div class="button">X</div>
+            <div>example name art title</div>
+          </div>
+
+        </div>
+      </div>
     </aside>
 
     <!-- SECTION POP-UP 1  -->
 
 <!-- SECTION POP-UP 1  -->
-    <section class="pop-up">
-      <div class="img-up">
-        <img src="img/test.jpg" alt="image d'oeuvre">
+    <section class="popup-container">
+      <div class="popup-overlay">
         <div class="btn-close">
-          <a href="#">
+          <a href="javascript:void(0)" onclick="togglePopup()">
             <span class="material-symbols-outlined">
               close
             </span>
           </a>
         </div>
-        <div class="btn-zoom">
-          <a href="#">
-            <span class="material-symbols-outlined">
-              search
-            </span>
-          </a>
+        <div class="container-txt-img">
+          <div class="img-up">
+            <div class="btn-zoom">
+              <a href="#">
+                <span class="material-symbols-outlined">
+                  search
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="text-up">
+            <h2>
+              Exemple pour placer les informations
+              "Nom de l'oeuvre, date." <br>
+              "Nom de l'artite"
+            </h2>
+            <div class="description">
+              <p> 
+                <strong>description:</strong> text...
+              </p>
+            </div>
+            <p>
+              <strong>title:</strong> "The Madonna of the Rosary" <br>
+              <strong>department_title:</strong> "Prints and Drawings" <br>
+              <strong>date_display:</strong> "c. 1480" <br>
+              <strong>place_of_origin: </strong>"Germany" <br>
+            </p>
+            <em>
+              <strong>credit_line:</strong>"Bequest of Mrs. Potter Palmer, Jr."
+            </em>
+          </div>
         </div>
-      </div>
-      <div class="text-up">
-        <h2>
-          Exemple pour placer les informations
-          "Nom de l'oeuvre, date." <br>
-          "Nom de l'artite"
-        </h2>
-        <p>
-          title: "The Madonna of the Rosary" <br>
-          department_title: "Prints and Drawings" <br>
-          date_display: "c. 1480" <br>
-          place_of_origin: "Germany" <br>
-        </p>
-        <em>
-          credit_line: "Bequest of Mrs. Potter Palmer, Jr."
-        </em>
       </div>
     </section>
   </main>
@@ -200,15 +199,14 @@
   <footer>
     <div class="footer-nav">
       <small>
-        © 2024 Institut d'art de Chicago
+        The Art Institute of Chicago is pleased to offer free, unrestricted use of over 50,000 images of works in the collection believed to be in the public domain or to which the museum otherwise waives any copyright it might have. Such images are made available under <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero (CC0)</a> designation and the <a href="https://www.artic.edu/terms">Terms and Conditions of this website.</a> <br>
+        © 2024 Work carried out within the DigitalCity.brussels training center for educational purposes.
       </small>
-      <p>
-        Travail réaliser au sein du centre de formation Digitalcity.brussels a but éducative - R. Jules Cockx 6, 1160 Auderghem
-      </p>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/99fa1db12f.js" crossorigin="anonymous"></script>
   <script src="javascript/main.js"></script>
 </body>
 </html>
