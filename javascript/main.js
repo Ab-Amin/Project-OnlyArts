@@ -14,6 +14,7 @@ let swiper = new Swiper(".mySwiper", {
   slidesPerView: 1,
   mousewheel: true,
   spaceBetween: 30,
+  parallax: true,
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
@@ -154,19 +155,17 @@ fetch(`https://api.artic.edu/api/v1/artworks?page=1&limit=100`)
 
       function swiperSortHtml() {
         swiperWrapper.innerHTML += `
-          <div class="swiper-slide" data-art="${i}" 
-            data-category="${data.data[i].category_titles}"
-            data-country="${data.data[i].place_of_origin}">
-            <img src="${artImg}" alt="">
+          <div class="swiper-slide" data-art="${i}" data-category="${data.data[i].category_titles}" data-country="${data.data[i].place_of_origin}">
+            <img src="${artImg}" alt="" data-swiper-parallax="-300">
             <div class="buttons">
-              <button type="button" title="add to Favorits" class="round-buttons add-to-fav">
+              <button type="button" title="add to Favorits" class="round-buttons add-to-fav" data-swiper-parallax="-300">
                 <i class="fa-solid fa-heart"></i>
               </button>
-              <button type="button" title="Read More..." class="round-buttons read-more">
+              <button type="button" title="Read More..." class="round-buttons read-more" data-swiper-parallax="-300">
                 <i class="fa-solid fa-plus"></i>
               </button>
             </div>
-            <div class="desc">
+            <div class="desc" data-swiper-parallax="-300">
               <p>${data.data[i].title}</p>
               <p> (${data.data[i].category_titles})</p>
               <p> (${data.data[i].place_of_origin} : country)</p>
