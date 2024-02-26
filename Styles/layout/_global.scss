@@ -2,8 +2,43 @@
   border-radius: 20px;
 }
 
+.round-buttons{
+  font-size: 20px;
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: transparent;
+  height: 35px;
+  aspect-ratio: 1/1;
 
+  &:hover{
+    background-color: rgba(255, 255, 255, 0.418);
+  }
+  &:active{
+    scale: 0.95;
+    background-color: transparent;
+  }
+}
 
+.back-up{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
 
-
+  border-radius: 50%;
+  button{
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+  }
+  &:hover{
+    button{
+      background: rgba(20, 20, 20, 0.7);
+      transition: all .2s ease-in-out;
+      i{
+        padding-bottom: 3px;
+        transition: all .2s ease-in-out;
+      }
+    }
+  }
+}
 

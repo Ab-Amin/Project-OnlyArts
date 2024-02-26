@@ -31,21 +31,11 @@ fetch(`https://api.artic.edu/api/v1/artworks?page=1&limit=100`)
 .then(response => response.json())
 .then(data => {
   console.log(data);
-  // data.data[i].
-  // console.log(data.data.department_title);
 
-  // let categoryListOnebyOne = []
-  // let count = [];
-  // for (i = 0; i < data.data.length; i++) {
-  //     categoryListOnebyOne.push(`${data.data[i].department_title}`)
-  // }
-  // console.log(categoryListOnebyOne);
-  // for (i = 0; i < categoryListOnebyOne.length; i++) {
-  //   const element = categoryListOnebyOne[i];
-  //   count[element] = (count[element] || 0) + 1;
-  // }
-  // console.log(count);
-
+  // Sort type :
+  // By category --> data.data[i].department_title
+  // By country --> data.data[i].place_of_origin
+  // (by date --> data.data[i].date_end)
 
   let categoryList = []
   function sortByCategory() {
@@ -122,132 +112,107 @@ fetch(`https://api.artic.edu/api/v1/artworks?page=1&limit=100`)
   //   }
   // }
   // sortByDate()
+
+
+  // Default swiper :
   function swiperDefaultHtml() {
     for (let i = 0; i < data.data.length; i++) {
       
       let artImg = `https://www.artic.edu/iiif/2/${data.data[i].image_id}/full/843,/0/default.jpg`
-               
-      swiperWrapper.innerHTML += `
-        <div class="swiper-slide" data-art="${i}" 
-          data-category="${data.data[i].category_titles}"
-          data-country="${data.data[i].place_of_origin}">
-          <img src="${artImg}" alt="">
-          <div class="buttons">
-            <button type="button" title="add to Favorits" class="add-to-fav">
-              <i class="fa-solid fa-heart"></i>
-            </button>
-            <button type="button" title="Read More..." class="read-more">
-              <i class="fa-solid fa-plus"></i>
-            </button>
+        swiperWrapper.innerHTML += `
+          <div class="swiper-slide" data-art="${i}" 
+            data-category="${data.data[i].category_titles}"
+            data-country="${data.data[i].place_of_origin}">
+            <img src="${artImg}" alt="">
+            <div class="buttons">
+              <button type="button" title="add to Favorits" class="round-buttons add-to-fav">
+                <i class="fa-solid fa-heart"></i>
+              </button>
+              <button type="button" title="Read More..." class="round-buttons read-more">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+            <div class="desc">
+              <p>${data.data[i].title}</p>
+              <p>by ${data.data[i].artist_title}</p>
+            </div>
           </div>
-          <div class="desc">
-            <p>${data.data[i].title}</p>
-            <p> ${data.data[i].category_titles} <-- category</p>
-            <p> ${data.data[i].place_of_origin} <-- country</p>
-            <p>by ${data.data[i].artist_title}</p>
-          </div>
-        </div>
-      `
+        `
+
     }
   }
   swiperDefaultHtml()
 
-
+  // Function to sort by category of country :
   function swiperSort(sort) {
-    swiperWrapper.innerHTML = ""
+    swiperWrapper.innerHTML = ``
 
     console.log(`select : ${sort}`);
     
     for (let i = 0; i < data.data.length; i++) {
-      
       let artImg = `https://www.artic.edu/iiif/2/${data.data[i].image_id}/full/843,/0/default.jpg`
 
-      if (data.data[i].place_of_origin == sort){
-               
-          swiperWrapper.innerHTML += `
-            <div class="swiper-slide" data-art="${i}" 
-              data-category="${data.data[i].category_titles}"
-              data-country="${data.data[i].place_of_origin}">
-              <img src="${artImg}" alt="">
-              <div class="buttons">
-                <button type="button" title="add to Favorits" class="add-to-fav">
-                  <i class="fa-solid fa-heart"></i>
-                </button>
-                <button type="button" title="Read More..." class="read-more">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-              </div>
-              <div class="desc">
-                <p>${data.data[i].title}</p>
-                <p> ${data.data[i].category_titles} <-- category</p>
-                <p> ${data.data[i].place_of_origin} <-- country</p>
-                <p>by ${data.data[i].artist_title}</p>
-              </div>
+      function swiperSortHtml() {
+        swiperWrapper.innerHTML += `
+          <div class="swiper-slide" data-art="${i}" 
+            data-category="${data.data[i].category_titles}"
+            data-country="${data.data[i].place_of_origin}">
+            <img src="${artImg}" alt="">
+            <div class="buttons">
+              <button type="button" title="add to Favorits" class="round-buttons add-to-fav">
+                <i class="fa-solid fa-heart"></i>
+              </button>
+              <button type="button" title="Read More..." class="round-buttons read-more">
+                <i class="fa-solid fa-plus"></i>
+              </button>
             </div>
-          `
-      } else {
-        console.log('idk man');
+            <div class="desc">
+              <p>${data.data[i].title}</p>
+              <p> (${data.data[i].category_titles})</p>
+              <p> (${data.data[i].place_of_origin} : country)</p>
+              <p>by ${data.data[i].artist_title}</p>
+            </div>
+          </div>
+        `
       }
-      
-      
+
+      if (data.data[i].place_of_origin == sort){
+        swiperSortHtml()
+
+      } else if (data.data[i].department_title == sort) {
+        swiperSortHtml()
+
+      }
     }
   }
-  
-
-
-  // function swiperDefaultSort(sort) {
-    
-  //   if (data.data.includes(sort)) {
-        
-  //     swiperSort()
-  
-  //   }
-
-  // }
-  
-
-  // category --> data.data[i].department_title
-  // country --> data.data[i].place_of_origin
-  // date --> data.data[i].date_end
-
-    
+  // 
   selectBox.addEventListener('change', function(e){
-
-
     if (e.target.hasAttribute('data-select')){
-      // swiperWrapper.innerHTML = ``
 
       let dataSelect = e.target.value
-      // console.log(dataSelect);
+      console.log(dataSelect);
 
-      // console.log(e.target.getAttribute('data-select'));
-      
-      // data-category --> document.querySelector('.swiper-slide').getAttribute('data-category') ==  dataSelect
-      // data-country --> document.querySelector('.swiper-slide').getAttribute('data-country') ==  dataSelect
-      // data-date --> document.querySelector('.swiper-slide').getAttribute('data-date') ==  dataSelect    
-
-      // selectCountry.selectedIndex = "country" // rester <select name="country"> to the option that has value="country"
+      // selectCountry.selectedIndex = "country" // reset the <select> to the <option> that has value="country"
 
       if (e.target.getAttribute('data-select') == "select-category"){
-        // selectCountry.selectedIndex = "category"
+        selectCountry.selectedIndex = "country"
         swiperSort(dataSelect)
 
       } else if (e.target.getAttribute('data-select') == "select-country"){
-        // selectCountry.selectedIndex = "category"
+        selectCategory.selectedIndex = "category"
         swiperSort(dataSelect)
       }
-
     }
-
   });
-
-  // Bug to debug :
-  // - tri fonctionne que avec kes pays
-  // - si choisis un pays qui a que (par example) 3 resultat, et juste aprés choisis un avec +3
-  //   resusltat, n'affichera que 3 pagination (on vois un peu du suivant(4eme) mais peu pas scroll)
-  //   (nvm, fonctionne parfois mais pas vraiment)
-  // - surement d'autre mais je suis fatigué
-  
 })
 .catch(error => {console.log("Erreur lors de la récup des données :", error);
+
 })
+
+
+// Go back to first slide 
+let backTop = document.querySelector('.back-up')
+backTop.addEventListener('click', function () {
+  swiper.slideTo(0)
+})
+
