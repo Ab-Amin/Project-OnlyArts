@@ -183,15 +183,15 @@ function onlyArts(pageNbr) {
     sortByartistName()
 
 
-  // Main Swiper =-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=--=
+    // Main Swiper =-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=--=
     function swiperDefaultHtml() {
       for (let i = 0; i < data.data.length; i++) {
         
         let artImg = `https://www.artic.edu/iiif/2/${data.data[i].image_id}/full/843,/0/default.jpg`
           swiperWrapper.innerHTML += `
             <div class="swiper-slide" data-art="${i}" data-category="${data.data[i].category_titles}" data-country="${data.data[i].place_of_origin}" data-artist="${data.data[i].artist_title}" >
-              <img src="${artImg}" alt="" data-swiper-parallax="-300">
-              <div class="buttons" data-swiper-parallax="-200">
+              <img src="${artImg}" alt="" >
+              <div class="buttons">
                 <button type="button" title="add to Favorits" class="round-buttons add-to-fav" >
                   <i class="fa-regular fa-heart"></i>
                 </button>
@@ -199,13 +199,15 @@ function onlyArts(pageNbr) {
                   <i class="fa-solid fa-plus"></i>
                 </button>
               </div>
-              <div class="desc" data-swiper-parallax="-100">
+              <div class="desc">
                 <p class="art-title">${data.data[i].title}</p>
                 <p class="art-artist">by ${data.data[i].artist_title}</p>
               </div>
             </div>
           `
-  
+        // <img> --> data-swiper-parallax="-300"
+        // <div class="buttons"> --> data-swiper-parallax="-200"
+        // <div class="desc"> -->  data-swiper-parallax="-100"
       }
     }
     swiperDefaultHtml()
@@ -281,47 +283,73 @@ function onlyArts(pageNbr) {
 
     // Fav List =-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=--=-=-=-=
 
-    let favButton = document.querySelector('.add-to-fav')
+    let favButton = document.querySelectorAll('.add-to-fav')
     let favListHtml = document.querySelector('.favorite-lists')
-    let favlist = [];
+    const favlist = [];
+    // const favList = {}
 
     // full heart : <i class="fa-solid fa-heart"></i> 
     // empty heart : <i class="fa-regular fa-heart"></i>
-    
-    favButton.addEventListener('click', function(e) {
-      if (e.target.closest('.swiper-slide').hasAttribute('data-art')){
 
-        let dataArt = e.target.closest('.swiper-slide').getAttribute('data-art')
-        console.log(dataArt);
+    favButton.forEach(fav => {
+      fav.addEventListener('click', function(){
+        if (fav.closest('.swiper-slide').hasAttribute('data-art')){
+  
+          let dataArt = fav.closest('.swiper-slide').getAttribute('data-art')
+          console.log(dataArt);
+  
+  
+          if (favlist.includes(data.data[dataArt].title) == false){
+          // if (Object.values(favList).indexOf('test1') < -1) {
 
 
-        if (favlist.includes(data.data[dataArt].title) == true){
-          e.target.innerHTML = `<i class="fa-regular fa-heart"></i>`
+            console.log(favlist.includes(data.data[dataArt].title));
+            fav.innerHTML = `<i class="fa-solid fa-heart"></i>`
+  
+            favListHtml.innerHTML += `
+            <div class="fav-list" data-art2="${dataArt}">
+              <button class="delete">X</button>
+              <div class="art-name">${data.data[dataArt].title}</div>
+            </div>
+          `
+            // favlist.create({artName : `${data.data[dataArt].title}`,  listNbr : `${dataArt}`})
+            favlist.push( {'artName' : `${data.data[dataArt].title}`,  'listNbr' : `${dataArt}`})
 
-        } else {
-          e.target.innerHTML = `<i class="fa-solid fa-heart"></i>`
-
-          favListHtml.innerHTML += `
-          <div class="fav-list" data-art2="${dataArt}">
-            <div class="delete">X</div>
-            <div class="art-name">${data.data[dataArt].title}</div>
-          </div>
-        `
-
-          favlist.push( {artName : `${data.data[dataArt].title}`} )
+          } else {
+            if (fav.classList.contains('.add-to-fav')){
+              fav.innerHTML = `<i class="fa-regular fa-heart"></i>`
+            }
+          }
         }
-      }
+        console.log(favlist);
 
-      console.log(favlist);
-    })
+      })
+    });
+
+
+
 
     // delete from fav List =-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=--=
 
     let Xbutton = document.querySelector('.delete')    
 
-    Xbutton.addEventListener('click', function(e){
-      if (e.target.closest('.swiper-slide').hasAttribute('data-art')){
-        e.target.parentElement.remove()
+    addEventListener('click', function(e){
+      if (e.target.classList.contains("delete")) {
+        let dataArt2 = e.target.closest('.fav-list').getAttribute('data-art2')
+        
+        console.log(dataArt2);
+        // Obj.hasOwnProperty() -> true/false
+        // console.log(favlist[listNbr])
+
+        if (favlist.hasOwnProperty('listNbr') == true) {
+          console.log(favlist['listNbr'] + "==" + dataArt2);
+        } else {
+          console.log(`nope`);
+        }
+
+        if (e.target.parentElement.hasAttribute('data-art2')){
+          e.target.parentElement.remove()
+        }
       }
 
       // deleteButton.parentElement.remove()
