@@ -8,9 +8,9 @@ body{
   main{
     position: relative;
     height: 100%;
-    margin: 0 auto;
+    // margin: 0 auto;
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     .main--main{
       width: 100%;
       padding: 10px 20px 50px;
@@ -152,9 +152,9 @@ body{
 
     aside{
       display: none;
-      @media screen and (min-width:880px) {
-        display: block;
-      }
+      // @media screen and (min-width:880px) {
+      //   display: block;
+      // }
       position: absolute;
       right: 20px;
       top: 20px;

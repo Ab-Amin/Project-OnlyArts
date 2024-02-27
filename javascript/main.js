@@ -66,8 +66,9 @@ fetch(`https://api.artic.edu/api/v1/artworks?page=1&limit=100`)
         const imgArt = `https://www.artic.edu/iiif/2/${data.data[indiceArt].image_id}/full/843,/0/default.jpg`;
         swiperImages.innerHTML = 
         `
-        <img src="${indiceArt}" class="swiper-image">
+        <img src="${imgArt}" class="swiper-image">
         `
+        console.log(imgArt);
       }
     }
   }
