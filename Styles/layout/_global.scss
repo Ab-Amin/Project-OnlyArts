@@ -1,3 +1,4 @@
+
 .full-border{
   border-radius: 20px;
 }
@@ -130,7 +131,60 @@
   border-radius: 10px;
 }
 
+// **********  POP UP 1 ********** 
 
+// Picto pop-up 
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
 
+.popup-container{
+  width: 100%;
+  position: absolute;
+  top: -20px;
+}
 
+.popup-overlay.open{
+  display: block !important;
+}
+
+.popup-overlay{
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: none;
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); 
+  padding: 25px;
+  border-radius: 20px;
+  margin: 20px;
+  .btn-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .container-txt-img{
+    position: relative;
+    padding: 10px;
+    width: 100%;
+    .img-up{
+      position: relative;
+      .btn-zoom{
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+      }
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
 

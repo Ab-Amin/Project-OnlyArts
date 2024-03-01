@@ -1,16 +1,11 @@
-// key = tiondernse
-// processEuropeanaSearch({
-  //   "apikey":"tiondernse",
-  //   "action":"record.json",
-  //   "success":true,
-//   "statsDuration":22,
-//   "requestNumber":8,
-// })
+
 
 let swiperWrapper = document.querySelector('.swiper-wrapper')
 let swiperSlide = document.querySelector('.swiper-slide')
 let swiper = new Swiper(".mySwiper", {
   direction: "vertical",
+  observer: true,
+  observeParents: true,
   slidesPerView: 1,
   mousewheel: true,
   spaceBetween: 30,
@@ -79,7 +74,31 @@ function onlyArts(pageNbr) {
     if (nowPage == lastPage) {
       nextPage.classList.add('hidden')
     }
-     
+    // Popup =-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=--=
+    
+    // **** POPUP ****
+    function togglePopup(artIndex) {
+      let popup = document.querySelector(".popup-overlay");
+      popup.classList.toggle("open");
+
+      // Sélectionner et afficher l'image correspondante dans le popup
+      if (popup.classList.contains("open")) {
+        let swiperImages = document.querySelector(".img-up")
+        let dataImages = document.querySelectorAll('.swiper-image');
+
+        for (let i = 0; i < dataImages.length; i++) {
+          dataImages[i].addEventListener('click', () => togglePopup(i))
+          const indiceArt = this.closest(".swiper-slide").dataset.art;
+          const imgArt = `https://www.artic.edu/iiif/2/${data.data[indiceArt].image_id}/full/843,/0/default.jpg`;
+          swiperImages.innerHTML = 
+          `
+          <img src="${imgArt}" class="swiper-image">
+          `
+          console.log(imgArt);
+        }
+      }
+    }
+    
     // Sort types =-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=--=
     
     // By category --> data.data[i].department_title
@@ -139,26 +158,6 @@ function onlyArts(pageNbr) {
       }
     }
     sortByContry()
-  
-    
-    // let byDate = []
-    // function sortByDate() {
-    //   for (let i = 0; i < data.data.length; i++) {
-    //     if (byDate.includes(data.data[i].date_end) == false) {
-    //       byDate.push(`${data.data[i].date_end}`)
-    //     } else if (data.data[i].date_end == null){
-    //       console.log(`Date of end of ${i} is unavailable`);
-    //     }
-    //   }
-    //   // console.log(byDate);
-    //   for (let i = 0; i < byDate.length; i++) {
-    //     if (byDate[i] != "null"){
-    //       selectDate.innerHTML += `
-    //       <option value="${byDate[i]}" data-select="${byDate[i]}">${byDate[i]}</option>`
-    //     }
-    //   }
-    // }
-    // sortByDate()
                 
     let artistName = []
     function sortByartistName() {
